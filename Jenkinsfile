@@ -6,19 +6,19 @@ pipeline {
     stages { 
         stage('SCM Checkout') {
             steps{
-            git 'https://github.com/priya-commit-08/jenkins-cicd.git'
+            git 'https://github.com/svhariharan/hari_CI_CD_.git'
             }
         }
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t priya-commit-08/nodeapp:$BUILD_NUMBER .'
+                sh 'docker build -t svhariharan/nodeapp_3:$BUILD_NUMBER .'
             }
         }
         
         stage('Run Container') {
             steps {
-                    sh "docker run -d --name node_app_$BUILD_NUMBER priya-commit-08/nodeapp:$BUILD_NUMBER"
+                    sh "docker run -d --name node_app_3$BUILD_NUMBER svhariharan/nodeapp:$BUILD_NUMBER"
             }
         }   
 }
